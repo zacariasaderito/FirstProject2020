@@ -2,36 +2,51 @@ package assignment;
 
 
 import java.util.Scanner;
-import java.util.Random;
 
-public class App 
+public class App
 {
+    private static Scanner input = new Scanner(System.in);
+    private String name;
+    private String code;
+    private double amount;
+
+
     public static void main( String[] args ) {
-        loanInterest u1 = new underGrad("Daniel", "99119911", 5000);
-        loanInterest u2 = new postGrad("Aderito", "88228822", 4000);
-        loanInterest u3 = new smallBusiness("ADJZ company", "00003456", 5000);
 
-        loanInterest[]  user= new loanInterest[4];
+        System.out.println("Name:");
+        System.out.println("Code:");
+        System.out.println("Interest:");
 
-        user[0] = u1;
-        user[1] = u2;
-        user[2] = u3;
 
-        for (int i = 0;i < 3; i++) {
 
-            if (user[i] instanceof underGrad)
-            {
-                System.out.println("Loan Interest for Under Graduate Student : " + u1.interest());
-            }
-            else if (user[i] instanceof postGrad)
-            {
-                System.out.println("Loan Interest for Post Graduate: " + u2.interest());
-            }
-            else if (user[i] instanceof smallBusiness)
-            {
-                System.out.println("Loan Interest for Small Bussiness: " + u3.interest() );
-            }
-        }
+    } // Main
 
+    public void createObject(){
+
+        LoanInterest firstStudent = new PostGradStudent("Aderito", "n1", 2);
+
+        System.out.println(firstStudent.toString());
+        System.out.printf("Interest: " + firstStudent.interest());
     }
+
 }
+
+/**
+ * loanInterest newObject = new underGrad(name, reference, amount);
+ *         while ((objType != 0) || (objType != 1) || (objType != 2) || (objType != 3)){
+ *             System.out.println("Wrong imput! Enter a valid command (0 - 3) ");
+ *             System.out.println("  ");
+ *             menu();
+ *             break;
+ *         }
+ *         if (objType == 1) {
+ *             newObject = new underGrad(name, reference, amount);
+ *         } else if (objType == 2){
+ *             newObject = new postGrad(name, reference, amount);
+ *         } else if (objType == 3){
+ *             newObject = new smallBusiness(name, reference, amount);
+ *         }else {
+ *             System.out.println("Thank you for using our App!");
+ *             System.exit(0);
+ *         }
+ */

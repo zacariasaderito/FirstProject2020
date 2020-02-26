@@ -1,8 +1,7 @@
 package assignment;
 
-public interface loanInterest {
+public interface LoanInterest {
 
     public abstract double interest();
-
 
 }
