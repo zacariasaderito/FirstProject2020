@@ -1,14 +1,10 @@
 package assignment;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
 public class AppTest {
-
 
     private String name;
     private String code;
@@ -16,9 +12,7 @@ public class AppTest {
     private Student student1;
     private Student student2;
     private Student student3;
-    private LoanInterest loanInterest1;
-    private LoanInterest loanInterest2;
-    private LoanInterest loanInterest3;
+
 
     @Before
     public void setUp() throws Exception {
@@ -37,20 +31,14 @@ public class AppTest {
     @Test
     public void testEquality() {
         student2 = student1;
-        //Compare student1 with student2 - Equal Objects
+
         Assert.assertEquals("Object student1 is not equal to Object student3 ",student1,student2);
         System.out.println(student1 + "\n" + student2);
 
-//        //Compare student1 with student2 - Different Objects
-//        Assert.assertNotEquals("Object student1 is not equal to Object student2 ",student1,student2);
-//        System.out.println(student1 + "\n" + student3);
     }
 
     @Test
     public void testIdentity() {
-
-        assertNotSame(student1, student3);
-        System.out.println("HASH CODE FOR OBJECTS BEFORE CHANGE student3 \n" + "student1: " +student1.hashCode() + "\n" + "student3: " + student3.hashCode() + "\n");
 
         //MAKING 1 AND 3 THE SAME.
         student3 = student1;
@@ -61,9 +49,30 @@ public class AppTest {
 
     }
 
+    @Test (timeout = 200)
+    public void testIdentityWithTimeout(){
+        while (student3 != student1);
+    }
+
+
+    @Test
+    public void FaillingTest() {
+
+        //Compare student1 with student2 - Different Objects
+        Assert.assertNotEquals("Object student1 is equal to Object student2 ",student1,student2);
+        fail();
+        System.out.println(student1 + "\n" + student3);
+    }
+
+    @Ignore
+    @Test
+    public void disablingTest() {
+        Assert.assertNotNull(student2);
+
+    }
+
     @After
     public void tearDown() throws Exception {
-
     }
 
 }
